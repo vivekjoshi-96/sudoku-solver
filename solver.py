@@ -23,6 +23,13 @@ def main():
     print(*board, sep='\n')
 
 
+def find_empty(board):
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if board[i][j] == 0:
+                return i, j
+    return None
+
+
 if __name__ == '__main__':
     main()
-
