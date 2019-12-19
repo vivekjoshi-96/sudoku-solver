@@ -31,5 +31,24 @@ def find_empty(board):
     return None
 
 
+def valid(board, position, number):
+    # Check row
+    for i in range(0, len(board)):
+        if board[position[0]][i] == number and position[1] != i:
+            return False
+    # Check Column
+    for i in range(0, len(board)):
+        if board[i][position[1]] == number and position[1] != i:
+            return False
+    # Check box
+    box_x = position[1]//3
+    box_y = position[0]//3
+    for i in range(box_y*3, box_y*3 + 3):
+        for j in range(box_x*3, box_x*3 + 3):
+            if board[i][j] == number and (i, j) != position:
+                return False
+    return True
+
+
 if __name__ == '__main__':
     main()
