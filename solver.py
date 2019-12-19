@@ -50,5 +50,20 @@ def valid(board, position, number):
     return True
 
 
+def solve(board):
+    find = find_empty(board)
+    if find:
+        row, col = find
+    else:
+        return True
+    for i in range(1, 10):
+        if valid(board, (row, col), i):
+            board[row][col] = i
+            if solve(board):
+                return True
+            board[row][col] = 0
+    return False
+
+
 if __name__ == '__main__':
     main()
