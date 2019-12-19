@@ -20,10 +20,10 @@ def main():
         [1, 2, 0, 0, 0, 7, 4, 0, 0],
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
-    print(*board, sep='\n')
+    print_board(board)
     solve(board)
     print("==========================")
-    print(*board, sep='\n')
+    print_board(board)
 
 
 def find_empty(board):
@@ -66,6 +66,19 @@ def solve(board):
                 return True
             board[row][col] = 0
     return False
+
+
+def print_board(board):
+    for i in range(len(board)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - - - -")
+        for j in range(len(board[0])):
+            if j % 3 == 0:
+                print(" | ", end="")
+            if j == 8:
+                print(board[i][j], end="\n")
+            else:
+                print(str(board[i][j]) + " ", end="")
 
 
 if __name__ == '__main__':
