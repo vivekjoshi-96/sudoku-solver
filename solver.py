@@ -21,6 +21,9 @@ def main():
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
     print(*board, sep='\n')
+    solve(board)
+    print("==========================")
+    print(*board, sep='\n')
 
 
 def find_empty(board):
